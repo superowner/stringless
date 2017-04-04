@@ -18,8 +18,8 @@
 #include <QFormBuilder>
 #include <QtDesigner>
 #include <QtUiTools/QUiLoader>
-#include <QVBoxLayout>
-#include <QWidget>
+#include <Qt>
+#include <QtGui/QWidget>
 
 #include <maya/MGlobal.h>
 #include <maya/MIOStream.h>

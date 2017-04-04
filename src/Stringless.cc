@@ -73,6 +73,17 @@ int main(int argc, char** argv) {
 
         if (arg_list.at(1).compare(argv[1]) == 0) // If arg is -iw
         {
+            std::cout << "" << std::endl;
+            std::cout << "" << std::endl;
+            std::cout << "" << std::endl;
+	    std::cout << "Stringless facial motion capture system" << std::endl;
+            std::cout << "by Justin Tennant" << std::endl;
+            std::cout << "justin.tennant@sjsu.edu" << std::endl;
+            std::cout << "" << std::endl;
+            std::cout << "Follow my progress on GitHub!:" << std::endl;
+            std::cout << "https://github.com/octop1/stringless" << std::endl;
+            std::cout << "" << std::endl;
+
             Stringless::Writer writer(memory_manager.address());
             Stringless::FaceDetector face_detector(camera_number,
                                                    face_landmarks_location);

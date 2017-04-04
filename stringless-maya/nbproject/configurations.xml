@@ -77,7 +77,7 @@ Contributor(s):
         <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <flagsDictionary>
-        <element flagsID="0" commonFlags="-funsigned-char -O2 -fPIC"/>
+        <element flagsID="0" commonFlags="-funsigned-char -std=gnu++0x -fPIC"/>
         <element flagsID="1"
                  commonFlags="-mtune=generic -march=x86-64 -O2 -funsigned-char -fPIC"/>
       </flagsDictionary>
@@ -92,42 +92,39 @@ Contributor(s):
         </makeTool>
         <preBuild>
           <preBuildCommandWorkingDir>build/Debug</preBuildCommandWorkingDir>
-          <preBuildCommand>/home/jtennant/Downloads/Qt-4_8_6_forMaya2016/Qt/qt-adsk-4.8.6/bin/qmake -spec /home/jtennant/Downloads/Qt-4_8_6_forMaya2016/Qt/qt-adsk-4.8.6/mkspecs/linux-g++ ../..</preBuildCommand>
+          <preBuildCommand>/home/justin/Downloads/5.6.1-Maya/qt-build-561/qtbase/bin/qmake  ../..</preBuildCommand>
           <preBuildFirst>true</preBuildFirst>
         </preBuild>
       </makefileType>
       <item path="build/Debug/moc_StringlessWindow.cpp"
             ex="false"
             tool="1"
-            flavor2="0">
+            flavor2="8">
         <ccTool flags="0">
           <incDir>
-            <pElem>../../../Downloads/Qt-4_8_6_forMaya2016/Qt/qt-adsk-4.8.6/mkspecs/linux-g++</pElem>
             <pElem>.</pElem>
-            <pElem>/usr/local/Trolltech/Qt-4.8.6/include/QtDesigner</pElem>
-            <pElem>/usr/local/Trolltech/Qt-4.8.6/include/QtCore</pElem>
-            <pElem>/usr/local/Trolltech/Qt-4.8.6/include/QtGui</pElem>
-            <pElem>/usr/local/Trolltech/Qt-4.8.6/include/QtXml</pElem>
-            <pElem>/usr/local/Trolltech/Qt-4.8.6/include</pElem>
+            <pElem>build/Debug</pElem>
             <pElem>..</pElem>
-            <pElem>/usr/autodesk/maya2016.5/include</pElem>
+            <pElem>/usr/autodesk/maya2017/include</pElem>
             <pElem>/usr/X11R6/include</pElem>
             <pElem>/usr/include/QtDesigner</pElem>
-            <pElem>../../../Qt/5.8/gcc_64</pElem>
-            <pElem>build/Debug</pElem>
+            <pElem>../../../../jtennant/Qt/5.8/gcc_64</pElem>
+            <pElem>../../../Downloads/5.6.1-Maya/qt-adsk-5.6.1/qtbase/include</pElem>
+            <pElem>../../../Downloads/5.6.1-Maya/qt-adsk-5.6.1/qtbase/include/QtGui</pElem>
+            <pElem>../../../Downloads/5.6.1-Maya/qt-build-561/qtbase/include</pElem>
+            <pElem>../../../Downloads/5.6.1-Maya/qt-build-561/qtbase/include/QtGui</pElem>
+            <pElem>../../../Downloads/5.6.1-Maya/qt-adsk-5.6.1/qtbase/include/QtCore</pElem>
+            <pElem>../../../Downloads/5.6.1-Maya/qt-build-561/qtbase/include/QtCore</pElem>
+            <pElem>../../../Downloads/5.6.1-Maya/qt-adsk-5.6.1/qtbase/mkspecs/linux-g++</pElem>
           </incDir>
           <preprocessorList>
             <Elem>Bits64_</Elem>
             <Elem>FUNCPROTO</Elem>
             <Elem>LINUX</Elem>
             <Elem>LINUX_64</Elem>
-            <Elem>QDESIGNER_EXPORT_WIDGETS</Elem>
             <Elem>QT_CORE_LIB</Elem>
             <Elem>QT_GUI_LIB</Elem>
-            <Elem>QT_NO_DEBUG</Elem>
             <Elem>QT_PLUGIN</Elem>
-            <Elem>QT_SHARED</Elem>
-            <Elem>QT_XML_LIB</Elem>
             <Elem>UNIX</Elem>
             <Elem>_BOOL</Elem>
             <Elem>_GNU_SOURCE</Elem>
@@ -148,35 +145,32 @@ Contributor(s):
           </incDir>
         </ccTool>
       </item>
-      <item path="build/Debug/qrc_stringless.cpp" ex="false" tool="1" flavor2="0">
+      <item path="build/Debug/qrc_stringless.cpp" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
           <incDir>
-            <pElem>../../../Downloads/Qt-4_8_6_forMaya2016/Qt/qt-adsk-4.8.6/mkspecs/linux-g++</pElem>
             <pElem>.</pElem>
-            <pElem>/usr/local/Trolltech/Qt-4.8.6/include/QtDesigner</pElem>
-            <pElem>/usr/local/Trolltech/Qt-4.8.6/include/QtCore</pElem>
-            <pElem>/usr/local/Trolltech/Qt-4.8.6/include/QtGui</pElem>
-            <pElem>/usr/local/Trolltech/Qt-4.8.6/include/QtXml</pElem>
-            <pElem>/usr/local/Trolltech/Qt-4.8.6/include</pElem>
+            <pElem>build/Debug</pElem>
             <pElem>..</pElem>
-            <pElem>/usr/autodesk/maya2016.5/include</pElem>
+            <pElem>/usr/autodesk/maya2017/include</pElem>
             <pElem>/usr/X11R6/include</pElem>
             <pElem>/usr/include/QtDesigner</pElem>
-            <pElem>../../../Qt/5.8/gcc_64</pElem>
-            <pElem>build/Debug</pElem>
+            <pElem>../../../../jtennant/Qt/5.8/gcc_64</pElem>
+            <pElem>../../../Downloads/5.6.1-Maya/qt-adsk-5.6.1/qtbase/include</pElem>
+            <pElem>../../../Downloads/5.6.1-Maya/qt-adsk-5.6.1/qtbase/include/QtGui</pElem>
+            <pElem>../../../Downloads/5.6.1-Maya/qt-build-561/qtbase/include</pElem>
+            <pElem>../../../Downloads/5.6.1-Maya/qt-build-561/qtbase/include/QtGui</pElem>
+            <pElem>../../../Downloads/5.6.1-Maya/qt-adsk-5.6.1/qtbase/include/QtCore</pElem>
+            <pElem>../../../Downloads/5.6.1-Maya/qt-build-561/qtbase/include/QtCore</pElem>
+            <pElem>../../../Downloads/5.6.1-Maya/qt-adsk-5.6.1/qtbase/mkspecs/linux-g++</pElem>
           </incDir>
           <preprocessorList>
             <Elem>Bits64_</Elem>
             <Elem>FUNCPROTO</Elem>
             <Elem>LINUX</Elem>
             <Elem>LINUX_64</Elem>
-            <Elem>QDESIGNER_EXPORT_WIDGETS</Elem>
             <Elem>QT_CORE_LIB</Elem>
             <Elem>QT_GUI_LIB</Elem>
-            <Elem>QT_NO_DEBUG</Elem>
             <Elem>QT_PLUGIN</Elem>
-            <Elem>QT_SHARED</Elem>
-            <Elem>QT_XML_LIB</Elem>
             <Elem>UNIX</Elem>
             <Elem>_BOOL</Elem>
             <Elem>_GNU_SOURCE</Elem>
@@ -187,32 +181,29 @@ Contributor(s):
       <folder path="0/src">
         <ccTool>
           <incDir>
-            <pElem>../../../Downloads/Qt-4_8_6_forMaya2016/Qt/qt-adsk-4.8.6/mkspecs/linux-g++</pElem>
             <pElem>.</pElem>
-            <pElem>/usr/local/Trolltech/Qt-4.8.6/include/QtDesigner</pElem>
-            <pElem>/usr/local/Trolltech/Qt-4.8.6/include/QtCore</pElem>
-            <pElem>/usr/local/Trolltech/Qt-4.8.6/include/QtGui</pElem>
-            <pElem>/usr/local/Trolltech/Qt-4.8.6/include/QtXml</pElem>
-            <pElem>/usr/local/Trolltech/Qt-4.8.6/include</pElem>
+            <pElem>build/Debug</pElem>
             <pElem>..</pElem>
-            <pElem>/usr/autodesk/maya2016.5/include</pElem>
+            <pElem>/usr/autodesk/maya2017/include</pElem>
             <pElem>/usr/X11R6/include</pElem>
             <pElem>/usr/include/QtDesigner</pElem>
-            <pElem>../../../Qt/5.8/gcc_64</pElem>
-            <pElem>build/Debug</pElem>
+            <pElem>../../../../jtennant/Qt/5.8/gcc_64</pElem>
+            <pElem>../../../Downloads/5.6.1-Maya/qt-adsk-5.6.1/qtbase/include</pElem>
+            <pElem>../../../Downloads/5.6.1-Maya/qt-adsk-5.6.1/qtbase/include/QtGui</pElem>
+            <pElem>../../../Downloads/5.6.1-Maya/qt-build-561/qtbase/include</pElem>
+            <pElem>../../../Downloads/5.6.1-Maya/qt-build-561/qtbase/include/QtGui</pElem>
+            <pElem>../../../Downloads/5.6.1-Maya/qt-adsk-5.6.1/qtbase/include/QtCore</pElem>
+            <pElem>../../../Downloads/5.6.1-Maya/qt-build-561/qtbase/include/QtCore</pElem>
+            <pElem>../../../Downloads/5.6.1-Maya/qt-adsk-5.6.1/qtbase/mkspecs/linux-g++</pElem>
           </incDir>
           <preprocessorList>
             <Elem>Bits64_</Elem>
             <Elem>FUNCPROTO</Elem>
             <Elem>LINUX</Elem>
             <Elem>LINUX_64</Elem>
-            <Elem>QDESIGNER_EXPORT_WIDGETS</Elem>
             <Elem>QT_CORE_LIB</Elem>
             <Elem>QT_GUI_LIB</Elem>
-            <Elem>QT_NO_DEBUG</Elem>
             <Elem>QT_PLUGIN</Elem>
-            <Elem>QT_SHARED</Elem>
-            <Elem>QT_XML_LIB</Elem>
             <Elem>UNIX</Elem>
             <Elem>_BOOL</Elem>
             <Elem>_GNU_SOURCE</Elem>
@@ -220,7 +211,7 @@ Contributor(s):
           </preprocessorList>
         </ccTool>
       </folder>
-      <item path="src/StringlessWindow.cc" ex="false" tool="1" flavor2="11">
+      <item path="src/StringlessWindow.cc" ex="false" tool="1" flavor2="8">
         <ccTool flags="0">
         </ccTool>
       </item>

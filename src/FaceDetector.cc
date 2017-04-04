@@ -60,25 +60,31 @@ int FaceDetector::start(Writer &writer) {
     dlib::frontal_face_detector detector = dlib::get_frontal_face_detector();
     dlib::shape_predictor sp;
     dlib::deserialize(face_landmarks_location) >> sp;
+    std::vector<dlib::rectangle> faces;
     
     /* dlib graphical window context */
     dlib::image_window win;
+    //dlib::image_window::set_title(win, "Stringless");
     
-    const int downsample_ratio = 2;
+    const int downsample_ratio = 1;
     
     /* FrameData variable, to be passed into the writer */
     FrameData frame_data;
     const int points = 68;
     
     /* Frame count / frames per second variables */
-    int frame_count = 0;
+    unsigned long long int frame_count = 0;
     int frame_count_enter = 0, frame_count_exit;
     int frames_per_second;
     
     auto start = std::chrono::steady_clock::now();
     while(!win.is_closed())
     {
-        // Framerate calculations
+        if (frame_count == ULLONG_MAX - 1) {
+		frame_count = frame_count_enter = frame_count_exit = 0;
+	}
+	
+	// Framerate calculations
         auto diff = std::chrono::steady_clock::now() - start;
         frame_count_exit = frame_count;
         if (std::chrono::duration_cast<std::chrono::milliseconds>(diff).count() >= 1000)
@@ -101,37 +107,40 @@ int FaceDetector::start(Writer &writer) {
                    1.0/downsample_ratio, 
                    1.0/downsample_ratio);
         
-        dlib::cv_image<dlib::bgr_pixel> cimg(resized_frame);
+        cv::Mat flipped;
+        cv::flip(resized_frame, flipped, 1);
+        
+        dlib::cv_image<dlib::bgr_pixel> cimg(flipped);
         
         // Detect the faces
-        std::vector<dlib::rectangle> faces = detector(cimg);
- 
-        // Find the pose of each face
-        std::vector<dlib::full_object_detection> shapes;
-        for (unsigned long i = 0; i < faces.size(); ++i)
-        {
-            /*
-            dlib::rectangle r(
-                        (long)(faces[i].left() * downsample_ratio),
-                        (long)(faces[i].top() * downsample_ratio),
-                        (long)(faces[i].right() * downsample_ratio),
-                        (long)(faces[i].bottom() * downsample_ratio)
-            ); 
-            */
-            dlib::full_object_detection shape = sp(cimg, faces[i]);
-            //dlib::full_object_detection shape = sp(cimg, r);
-            
-            // Push data points into frame data
-            for(int i = 0; i < points; ++i)
-            {
-                frame_data.points[i].x = (double)shape.part(i).x() / (double)cimg.nr();
-                frame_data.points[i].y = (double)shape.part(i).y() / (double)cimg.nc();
-            }
-            frame_data.fps = frames_per_second;
-            
-            shapes.push_back(shape);
+	if (frame_count % 3 == 0) {
+		faces = detector(cimg);
+	}
+	// Find the pose of each face
+	std::vector<dlib::full_object_detection> shapes;
+	for (unsigned long i = 0; i < faces.size(); ++i)
+	{
+	    /*
+	    dlib::rectangle r(
+	                (long)(faces[i].left() * downsample_ratio),
+	                (long)(faces[i].top() * downsample_ratio),
+	                (long)(faces[i].right() * downsample_ratio),
+	                (long)(faces[i].bottom() * downsample_ratio)
+	    ); 
+	    */
+	    dlib::full_object_detection shape = sp(cimg, faces[i]);
+	    //dlib::full_object_detection shape = sp(cimg, r);
+	    
+	    // Push data points into frame data
+	    for(int i = 0; i < points; ++i)
+	    {
+	        frame_data.points[i].x = (double)shape.part(i).x() / (double)cimg.nr();
+	        frame_data.points[i].y = (double)shape.part(i).y() / (double)cimg.nc();
+	    }
+	    frame_data.fps = frames_per_second;
+	    
+	    shapes.push_back(shape);
         }
-        
         std::cout << " Frame rate: " << frames_per_second << " Frame count: " << frame_count << "      \r";
         ++frame_count;
         
@@ -140,7 +149,7 @@ int FaceDetector::start(Writer &writer) {
         win.add_overlay(dlib::render_face_detections(shapes));
         
         // Pass frame data to writer
-        writer.write(frame_data);
+        //writer.write(frame_data);
 
     }
     

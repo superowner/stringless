@@ -8,7 +8,7 @@
 # or hard copy form.
 # ==========================================================================
 #+
-mayaVersion := 2016.5
+mayaVersion := 2017
 gccVersion := 
 
 # If you have Maya installed in a non-standard location, uncomment the

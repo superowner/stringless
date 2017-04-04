@@ -1,1 +1,2 @@
-MAYA_LOCATION = /usr/autodesk/maya2016.5
+MAYA_LOCATION = /usr/autodesk/maya2017
+CONFIG += debug
